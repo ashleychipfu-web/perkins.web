@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perkins Plumbing & Electrical | Kempton Park</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--primary:#0a2a5c;--primary-light:#1a4a8c;--accent:#e63946;--accent-hover:#c62828;--text-dark:#1a1a2e;--text-light:#555;--bg-light:#f8fafc;--white:#fff;--shadow:0 4px 20px rgba(0,0,0,0.08);--shadow-lg:0 10px 40px rgba(0,0,0,0.12);--transition:all 0.3s ease}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;color:var(--text-dark);line-height:1.6;overflow-x:hidden}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--white);box-shadow:var(--shadow);padding:12px 0;transition:var(--transition)}
+.nav-container{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-icon{width:50px;height:50px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:24px;position:relative}
+.logo-icon::after{content:'';position:absolute;bottom:8px;right:8px;width:14px;height:14px;background:var(--accent);border-radius:50%;border:2px solid var(--white)}
+.logo-text h1{font-size:20px;font-weight:800;color:var(--primary);line-height:1.2;letter-spacing:-0.5px}
+.logo-text span{font-size:11px;font-weight:600;color:var(--accent);letter-spacing:1px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text-dark);font-weight:500;font-size:15px;position:relative;transition:var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:var(--transition)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-phone{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text-dark);font-weight:600;font-size:15px}
+.nav-phone i{color:var(--accent);font-size:18px}
+.btn{padding:12px 28px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;border:none;transition:var(--transition);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:var(--accent);color:var(--white)}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 8px 25px rgba(230,57,70,0.3)}
+.btn-outline{background:transparent;color:var(--primary);border:2px solid var(--primary)}
+.btn-outline:hover{background:var(--primary);color:var(--white)}
+.btn-white{background:var(--white);color:var(--accent)}
+.btn-white:hover{background:var(--bg-light);transform:translateY(-2px)}
+.mobile-menu-btn{display:none;background:none;border:none;font-size:24px;color:var(--primary);cursor:pointer}
+.hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#f0f4f8 0%,#e8eef5 50%,#f5f0eb 100%);padding-top:80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(10,42,92,0.05) 0%,transparent 70%);border-radius:50%}
+.hero-container{max-width:1300px;margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-content{position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(230,57,70,0.1);color:var(--accent);padding:8px 20px;border-radius:50px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px}
+.hero-tag i{animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.hero h2{font-size:56px;font-weight:800;line-height:1.1;color:var(--primary);margin-bottom:16px}
+.hero h2 span{color:var(--accent)}
+.hero-subtitle{font-size:20px;color:var(--text-light);margin-bottom:32px;max-width:500px}
+.hero-btns{display:flex;gap:16px;margin-bottom:40px;flex-wrap:wrap}
+.hero-phone{display:inline-flex;align-items:center;gap:12px;background:var(--white);padding:16px 28px;border-radius:12px;box-shadow:var(--shadow);text-decoration:none;color:var(--text-dark);transition:var(--transition)}
+.hero-phone:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.hero-phone-icon{width:48px;height:48px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:20px;animation:ring 2s infinite}
+@keyframes ring{0%,100%{transform:rotate(0deg)}10%{transform:rotate(15deg)}20%{transform:rotate(-15deg)}30%{transform:rotate(10deg)}40%{transform:rotate(-10deg)}50%{transform:rotate(0deg)}}
+.hero-phone-text{display:flex;flex-direction:column}
+.hero-phone-text small{font-size:12px;color:var(--text-light)}
+.hero-phone-text strong{font-size:20px;font-weight:700;color:var(--primary)}
+.hero-badges{display:flex;gap:24px;flex-wrap:wrap}
+.hero-badge{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500}
+.hero-badge i{width:36px;height:36px;background:var(--white);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--primary);box-shadow:var(--shadow)}
+.hero-image{position:relative}
+.hero-image img{width:100%;border-radius:24px;box-shadow:var(--shadow-lg)}
+.hero-image::before{content:'';position:absolute;top:-20px;left:-20px;right:20px;bottom:20px;border:3px solid var(--accent);border-radius:24px;z-index:-1}
+.hero-float-card{position:absolute;bottom:40px;left:-30px;background:var(--white);padding:20px 24px;border-radius:16px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:16px}
+.hero-float-card .icon{width:50px;height:50px;background:rgba(230,57,70,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:24px}
+.hero-float-card h4{font-size:14px;color:var(--text-light)}
+.hero-float-card p{font-size:20px;font-weight:700;color:var(--primary)}
+.services{padding:100px 24px;background:var(--white)}
+.section-header{text-align:center;max-width:600px;margin:0 auto 60px}
+.section-header h3{font-size:14px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.section-header h2{font-size:40px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.section-header p{color:var(--text-light);font-size:16px}
+.services-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.service-card{background:var(--white);border:1px solid #e8eef5;border-radius:20px;padding:40px 32px;transition:var(--transition);position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--accent);transform:scaleX(0);transition:var(--transition)}
+.service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:transparent}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:24px}
+.service-card:nth-child(1) .service-icon{background:rgba(10,42,92,0.08);color:var(--primary)}
+.service-card:nth-child(2) .service-icon{background:rgba(230,57,70,0.08);color:var(--accent)}
+.service-card:nth-child(3) .service-icon{background:rgba(10,42,92,0.08);color:var(--primary)}
+.service-card:nth-child(4) .service-icon{background:rgba(230,57,70,0.08);color:var(--accent)}
+.service-card:nth-child(5) .service-icon{background:rgba(10,42,92,0.08);color:var(--primary)}
+.service-card:nth-child(6) .service-icon{background:rgba(230,57,70,0.08);color:var(--accent)}
+.service-card h4{font-size:20px;font-weight:700;color:var(--primary);margin-bottom:12px}
+.service-card p{color:var(--text-light);font-size:14px;margin-bottom:20px;line-height:1.7}
+.service-link{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:600;font-size:14px;text-decoration:none;transition:var(--transition)}
+.service-link:hover{gap:12px}
+.features-bar{background:var(--primary);padding:40px 24px}
+.features-bar-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.feature-item{display:flex;align-items:center;gap:16px;color:var(--white)}
+.feature-item i{width:48px;height:48px;background:rgba(255,255,255,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.feature-item h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.feature-item p{font-size:12px;opacity:0.8}
+.why-us{padding:100px 24px;background:var(--bg-light)}
+.why-us-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.why-us-image{position:relative}
+.why-us-image img{width:100%;border-radius:24px;box-shadow:var(--shadow-lg)}
+.experience-badge{position:absolute;bottom:30px;right:-20px;background:var(--accent);color:var(--white);padding:24px 32px;border-radius:20px;text-align:center;box-shadow:var(--shadow-lg)}
+.experience-badge h3{font-size:42px;font-weight:800;line-height:1}
+.experience-badge p{font-size:14px;font-weight:500;margin-top:4px}
+.why-us-content h2{font-size:40px;font-weight:700;color:var(--primary);margin-bottom:20px}
+.why-us-content>p{color:var(--text-light);margin-bottom:32px}
+.why-list{list-style:none}
+.why-list li{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px}
+.why-list li i{width:32px;height:32px;background:var(--accent);color:var(--white);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;margin-top:2px}
+.why-list li h4{font-size:16px;font-weight:600;color:var(--primary);margin-bottom:4px}
+.why-list li p{font-size:14px;color:var(--text-light)}
+.emergency-banner{background:linear-gradient(135deg,var(--accent) 0%,#c62828 100%);padding:60px 24px;position:relative;overflow:hidden}
+.emergency-banner::before{content:'';position:absolute;top:-50%;right:-10%;width:500px;height:500px;background:rgba(255,255,255,0.05);border-radius:50%}
+.emergency-banner-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative;z-index:2}
+.emergency-content{color:var(--white)}
+.emergency-content h3{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:2px;opacity:0.9;margin-bottom:8px}
+.emergency-content h2{font-size:36px;font-weight:700;margin-bottom:8px}
+.emergency-content p{opacity:0.9;font-size:16px}
+.emergency-btn{display:inline-flex;align-items:center;gap:12px;background:var(--white);color:var(--accent);padding:18px 36px;border-radius:12px;text-decoration:none;font-weight:700;font-size:18px;transition:var(--transition);white-space:nowrap}
+.emergency-btn:hover{transform:scale(1.05);box-shadow:0 10px 40px rgba(0,0,0,0.2)}
+.emergency-btn i{font-size:22px}
+.areas{padding:100px 24px;background:var(--white)}
+.areas-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.area-card{background:var(--bg-light);padding:24px;border-radius:16px;display:flex;align-items:center;gap:12px;transition:var(--transition);cursor:pointer}
+.area-card:hover{background:var(--primary);color:var(--white);transform:translateY(-4px)}
+.area-card i{width:40px;height:40px;background:var(--white);color:var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.area-card:hover i{background:var(--accent);color:var(--white)}
+.area-card span{font-weight:600;font-size:15px}
+.testimonials{padding:100px 24px;background:var(--bg-light)}
+.testimonials-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:24px}
+.testimonial-card{background:var(--white);padding:40px;border-radius:20px;box-shadow:var(--shadow);position:relative}
+.testimonial-card::before{content:'"';position:absolute;top:20px;right:30px;font-size:80px;color:var(--accent);opacity:0.1;font-family:Georgia,serif;line-height:1}
+.stars{color:#ffc107;margin-bottom:16px;font-size:14px}
+.testimonial-card p{color:var(--text-light);font-size:15px;line-height:1.8;margin-bottom:24px}
+.testimonial-author{display:flex;align-items:center;gap:14px}
+.testimonial-author img{width:50px;height:50px;border-radius:50%;object-fit:cover}
+.testimonial-author h4{font-size:16px;font-weight:600;color:var(--primary)}
+.testimonial-author span{font-size:13px;color:var(--text-light)}
+.contact-hero{padding:160px 24px 80px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 100%);color:var(--white);text-align:center}
+.contact-hero h1{font-size:48px;font-weight:800;margin-bottom:16px}
+.contact-hero p{font-size:18px;opacity:0.9;max-width:600px;margin:0 auto}
+.contact-section{padding:80px 24px;background:var(--bg-light)}
+.contact-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-info-cards{display:grid;gap:20px}
+.contact-card{background:var(--white);padding:32px;border-radius:20px;box-shadow:var(--shadow);display:flex;align-items:flex-start;gap:20px;transition:var(--transition)}
+.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.contact-card-icon{width:56px;height:56px;background:rgba(230,57,70,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:22px;flex-shrink:0}
+.contact-card h4{font-size:16px;font-weight:600;color:var(--primary);margin-bottom:6px}
+.contact-card a,.contact-card p{color:var(--text-light);text-decoration:none;font-size:15px;transition:var(--transition)}
+.contact-card a:hover{color:var(--accent)}
+.contact-form-wrapper{background:var(--white);padding:48px;border-radius:24px;box-shadow:var(--shadow-lg)}
+.contact-form-wrapper h3{font-size:28px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.contact-form-wrapper>p{color:var(--text-light);margin-bottom:32px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:14px;font-weight:500;color:var(--primary);margin-bottom:8px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 18px;border:2px solid #e8eef5;border-radius:12px;font-family:'Poppins',sans-serif;font-size:15px;transition:var(--transition);background:var(--bg-light)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent);background:var(--white)}
+.form-group textarea{min-height:120px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{width:100%;padding:16px;font-size:16px;justify-content:center}
+.map-section{padding:0 24px 80px;background:var(--bg-light)}
+.map-container{max-width:1300px;margin:0 auto;border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.map-container iframe{width:100%;height:450px;border:none;display:block}
+.hours-section{padding:80px 24px;background:var(--white)}
+.hours-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hours-content h2{font-size:36px;font-weight:700;color:var(--primary);margin-bottom:20px}
+.hours-content>p{color:var(--text-light);margin-bottom:32px}
+.hours-list{list-style:none}
+.hours-list li{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid #e8eef5}
+.hours-list li:last-child{border-bottom:none}
+.hours-list li span:first-child{font-weight:500;color:var(--primary)}
+.hours-list li span:last-child{font-weight:600;color:var(--text-light)}
+.hours-list li.active span:last-child{color:var(--accent)}
+.hours-image{position:relative}
+.hours-image img{width:100%;border-radius:24px;box-shadow:var(--shadow-lg)}
+.services-hero{padding:160px 24px 80px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 100%);color:var(--white);text-align:center}
+.services-hero h1{font-size:48px;font-weight:800;margin-bottom:16px}
+.services-hero p{font-size:18px;opacity:0.9;max-width:700px;margin:0 auto}
+.services-detail{padding:80px 24px;background:var(--white)}
+.service-detail-card{max-width:1300px;margin:0 auto 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.service-detail-card:nth-child(even){direction:rtl}
+.service-detail-card:nth-child(even)>*{direction:ltr}
+.service-detail-image{position:relative}
+.service-detail-image img{width:100%;border-radius:24px;box-shadow:var(--shadow-lg)}
+.service-detail-content h3{font-size:14px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.service-detail-content h2{font-size:32px;font-weight:700;color:var(--primary);margin-bottom:20px}
+.service-detail-content p{color:var(--text-light);margin-bottom:24px;line-height:1.8}
+.service-features{list-style:none;margin-bottom:32px}
+.service-features li{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:15px;color:var(--text-dark)}
+.service-features li i{color:var(--accent);font-size:14px}
+.footer{background:var(--primary);color:var(--white);padding:80px 24px 0}
+.footer-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.footer-brand h3{font-size:24px;font-weight:700;margin-bottom:16px}
+.footer-brand p{opacity:0.8;font-size:14px;line-height:1.8;margin-bottom:24px}
+.footer-social{display:flex;gap:12px}
+.footer-social a{width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--white);text-decoration:none;transition:var(--transition)}
+.footer-social a:hover{background:var(--accent);transform:translateY(-3px)}
+.footer-col h4{font-size:16px;font-weight:600;margin-bottom:24px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:14px;transition:var(--transition);display:flex;align-items:center;gap:8px}
+.footer-links a:hover{color:var(--white);padding-left:4px}
+.footer-contact-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+.footer-contact-item i{width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.footer-contact-item a,.footer-contact-item span{color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;transition:var(--transition)}
+.footer-contact-item a:hover{color:var(--white)}
+.footer-bottom{max-width:1300px;margin:0 auto;padding:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;opacity:0.7}
+.footer-badges{display:flex;gap:24px}
+.footer-badge{display:flex;align-items:center;gap:6px}
+.footer-badge i{color:var(--accent)}
+.floating-buttons{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;gap:12px}
+.floating-btn{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:24px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.2);transition:var(--transition);position:relative}
+.floating-btn:hover{transform:scale(1.1)}
+.floating-btn.whatsapp{background:#25d366}
+.floating-btn.call{background:var(--accent)}
+.floating-btn.quote{background:var(--primary);width:auto;padding:0 24px;border-radius:30px;font-size:14px;font-weight:600;gap:8px;height:50px}
+.floating-btn .tooltip{position:absolute;right:70px;background:var(--text-dark);color:var(--white);padding:6px 14px;border-radius:8px;font-size:12px;font-weight:500;white-space:nowrap;opacity:0;visibility:hidden;transition:var(--transition)}
+.floating-btn:hover .tooltip{opacity:1;visibility:visible}
+.sticky-quote{position:fixed;bottom:0;left:0;right:0;background:var(--white);box-shadow:0 -4px 20px rgba(0,0,0,0.1);padding:12px 24px;z-index:998;display:none;align-items:center;justify-content:center;gap:16px}
+.sticky-quote p{font-size:14px;font-weight:500;color:var(--primary)}
+.sticky-quote .btn{padding:10px 24px;font-size:13px}
+.mobile-menu{position:fixed;top:0;right:-100%;width:80%;max-width:350px;height:100vh;background:var(--white);z-index:1001;padding:80px 32px 32px;transition:var(--transition);box-shadow:-10px 0 40px rgba(0,0,0,0.1)}
+.mobile-menu.active{right:0}
+.mobile-menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;opacity:0;visibility:hidden;transition:var(--transition)}
+.mobile-menu-overlay.active{opacity:1;visibility:visible}
+.mobile-menu-close{position:absolute;top:20px;right:20px;background:none;border:none;font-size:24px;color:var(--primary);cursor:pointer}
+.mobile-menu-links{list-style:none}
+.mobile-menu-links li{margin-bottom:4px}
+.mobile-menu-links a{display:block;padding:16px;color:var(--text-dark);text-decoration:none;font-weight:500;font-size:16px;border-radius:12px;transition:var(--transition)}
+.mobile-menu-links a:hover,.mobile-menu-links a.active{background:var(--bg-light);color:var(--accent)}
+.mobile-menu-phone{margin-top:24px;padding-top:24px;border-top:1px solid #e8eef5}
+.mobile-menu-phone a{display:flex;align-items:center;gap:12px;color:var(--accent);font-weight:700;font-size:18px;text-decoration:none;margin-bottom:12px}
+.mobile-menu-phone .btn{width:100%;justify-content:center;margin-top:8px}
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.page{display:none}
+.page.active{display:block;animation:fadeIn 0.4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.page-title-section{padding:160px 24px 80px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 100%);color:var(--white);text-align:center}
+.page-title-section h1{font-size:48px;font-weight:800;margin-bottom:16px}
+.page-title-section p{font-size:18px;opacity:0.9;max-width:700px;margin:0 auto}
+@media(max-width:1024px){.hero-container,.why-us-grid,.contact-grid,.hours-grid{grid-template-columns:1fr}.hero h2{font-size:40px}.features-bar-inner{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.service-detail-card{grid-template-columns:1fr}.service-detail-card:nth-child(even){direction:ltr}}
+@media(max-width:768px){.nav-links,.nav-phone{display:none}.mobile-menu-btn{display:block}.hero h2{font-size:32px}.hero-btns{flex-direction:column}.features-bar-inner{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr;gap:40px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.form-row{grid-template-columns:1fr}.emergency-banner-inner{flex-direction:column;text-align:center}.sticky-quote{display:flex}body{padding-bottom:70px}.floating-buttons{bottom:80px}.contact-form-wrapper{padding:32px 24px}.testimonials-grid{grid-template-columns:1fr}.hero-float-card{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div class="nav-container">
+<a href="#" class="logo" onclick="showPage('home')">
+<div class="logo-icon"><i class="fas fa-wrench"></i></div>
+<div class="logo-text"><h1>PERKINS</h1><span>Plumbing & Electrical</span></div>
+</a>
+<ul class="nav-links">
+<li><a href="#" class="active" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('services')">Services</a></li>
+<li><a href="#" onclick="showPage('contact')">Contact</a></li>
+</ul>
+<div class="nav-right">
+<a href="tel:0724428258" class="nav-phone"><i class="fas fa-phone-alt"></i><span>072 442 8258</span></a>
+<a href="#" class="btn btn-primary" onclick="showPage('contact')">Request a Quote</a>
+<button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+</div>
+</div>
+</nav>
+
+<div class="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
+<div class="mobile-menu">
+<button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+<ul class="mobile-menu-links">
+<li><a href="#" class="active" onclick="showPage('home');toggleMobileMenu()">Home</a></li>
+<li><a href="#" onclick="showPage('services');toggleMobileMenu()">Services</a></li>
+<li><a href="#" onclick="showPage('contact');toggleMobileMenu()">Contact</a></li>
+</ul>
+<div class="mobile-menu-phone">
+<a href="tel:0724428258"><i class="fas fa-phone-alt"></i>072 442 8258</a>
+<a href="https://wa.me/27724428258" class="btn btn-primary" target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp Us</a>
+</div>
+</div>
+
+<div id="home" class="page active">
+<section class="hero">
+<div class="hero-container">
+<div class="hero-content">
+<div class="hero-tag"><i class="fas fa-bolt"></i>24/7 Emergency Service Available</div>
+<h2>Plumbing & Electrical <span>Experts You Can Trust</span></h2>
+<p class="hero-subtitle">We provide top-quality plumbing and electrical services for homes and businesses across Kempton Park and surrounding areas. Available 24/7 for emergencies.</p>
+<div class="hero-btns">
+<a href="tel:0724428258" class="btn btn-primary"><i class="fas fa-phone-alt"></i>Call Now</a>
+<a href="https://wa.me/27724428258" class="btn btn-outline" target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp Us</a>
+</div>
+<a href="tel:0724428258" class="hero-phone">
+<div class="hero-phone-icon"><i class="fas fa-phone-alt"></i></div>
+<div class="hero-phone-text"><small>Emergency Hotline</small><strong>072 442 8258</strong></div>
+</a>
+<div class="hero-badges">
+<div class="hero-badge"><i class="fas fa-shield-alt"></i><span>Licensed & Insured</span></div>
+<div class="hero-badge"><i class="fas fa-clock"></i><span>24/7 Emergency Service</span></div>
+<div class="hero-badge"><i class="fas fa-check-circle"></i><span>100% Satisfaction Guaranteed</span></div>
+</div>
+</div>
+<div class="hero-image">
+<img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=500&fit=crop" alt="Professional Plumber">
+<div class="hero-float-card">
+<div class="icon"><i class="fas fa-star"></i></div>
+<div><h4>Customer Rating</h4><p>4.9/5 Stars</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="services">
+<div class="section-header">
+<h3>What We Do</h3>
+<h2>Our Professional Services</h2>
+<p>From emergency repairs to complete installations, we handle all your plumbing and electrical needs with expertise and care.</p>
+</div>
+<div class="services-grid">
+<div class="service-card fade-in">
+<div class="service-icon"><i class="fas fa-faucet"></i></div>
+<h4>Plumbing Services</h4>
+<p>From leaks to installations, we handle all plumbing types. Burst pipes, blocked toilets, tap repairs, and new installations.</p>
+<a href="#" class="service-link" onclick="showPage('services')">Learn More <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon"><i class="fas fa-bolt"></i></div>
+<h4>Electrical Services</h4>
+<p>Safe, reliable electrical solutions for your home or business. Wiring, repairs, installations, and compliance certificates.</p>
+<a href="#" class="service-link" onclick="showPage('services')">Learn More <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon"><i class="fas fa-temperature-high"></i></div>
+<h4>Geyser Services</h4>
+<p>Installation, repairs and maintenance of all geyser types. Solar, gas, and electric geysers serviced by certified technicians.</p>
+<a href="#" class="service-link" onclick="showPage('services')">Learn More <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon"><i class="fas fa-water"></i></div>
+<h4>Drain Cleaning</h4>
+<p>Blocked drains? We clear them fast and keep them flowing. High-pressure jetting and CCTV inspection available.</p>
+<a href="#" class="service-link" onclick="showPage('services')">Learn More <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon"><i class="fas fa-search"></i></div>
+<h4>Leak Detection</h4>
+<p>Advanced tools to detect and repair leaks quickly and efficiently. Minimize water damage with our expert detection.</p>
+<a href="#" class="service-link" onclick="showPage('services')">Learn More <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon"><i class="fas fa-tools"></i></div>
+<h4>Maintenance</h4>
+<p>Preventative maintenance to avoid costly repairs down the line. Regular inspections and servicing plans available.</p>
+<a href="#" class="service-link" onclick="showPage('services')">Learn More <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</section>
+
+<section class="features-bar">
+<div class="features-bar-inner">
+<div class="feature-item"><i class="fas fa-clock"></i><div><h4>24/7 Emergency Service</h4><p>Always available</p></div></div>
+<div class="feature-item"><i class="fas fa-user-tie"></i><div><h4>Skilled Professionals</h4><p>Certified experts</p></div></div>
+<div class="feature-item"><i class="fas fa-award"></i><div><h4>Quality Workmanship</h4><p>Done right first time</p></div></div>
+<div class="feature-item"><i class="fas fa-tag"></i><div><h4>Affordable Pricing</h4><p>Competitive rates</p></div></div>
+<div class="feature-item"><i class="fas fa-thumbs-up"></i><div><h4>Customer Satisfaction</h4><p>Your happiness matters</p></div></div>
+</div>
+</section>
+
+<section class="why-us">
+<div class="why-us-grid">
+<div class="why-us-image fade-in">
+<img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=500&fit=crop" alt="Professional Team">
+<div class="experience-badge"><h3>15+</h3><p>Years Experience</p></div>
+</div>
+<div class="why-us-content fade-in">
+<h2>Why Choose Perkins Plumbing & Electrical?</h2>
+<p>We are your trusted local plumbing and electrical experts serving Kempton Park and surrounding areas with dedication and professionalism.</p>
+<ul class="why-list">
+<li><i class="fas fa-check"></i><div><h4>Licensed & Insured</h4><p>Fully certified professionals with comprehensive insurance coverage for your peace of mind.</p></div></li>
+<li><i class="fas fa-check"></i><div><h4>Fast Emergency Response</h4><p>We respond to emergency calls within minutes, 24 hours a day, 7 days a week.</p></div></li>
+<li><i class="fas fa-check"></i><div><h4>Transparent Pricing</h4><p>No hidden fees. We provide upfront quotes so you know exactly what to expect.</p></div></li>
+<li><i class="fas fa-check"></i><div><h4>Quality Guaranteed</h4><p>All our work comes with a satisfaction guarantee and warranty on parts and labor.</p></div></li>
+</ul>
+<a href="tel:0724428258" class="btn btn-primary"><i class="fas fa-phone-alt"></i>Call Us Now</a>
+</div>
+</div>
+</section>
+
+<section class="emergency-banner">
+<div class="emergency-banner-inner">
+<div class="emergency-content">
+<h3>Emergency Services</h3>
+<h2>Need Help Right Now?</h2>
+<p>Our emergency team is standing by 24/7 to handle your plumbing and electrical emergencies.</p>
+</div>
+<a href="tel:0724428258" class="emergency-btn"><i class="fas fa-phone-alt"></i>072 442 8258</a>
+</div>
+</section>
+
+<section class="areas">
+<div class="section-header">
+<h3>Service Areas</h3>
+<h2>Areas We Service</h2>
+<p>We proudly serve homes and businesses across these Gauteng areas.</p>
+</div>
+<div class="areas-grid">
+<div class="area-card"><i class="fas fa-map-marker-alt"></i><span>Kempton Park</span></div>
+<div class="area-card"><i class="fas fa-map-marker-alt"></i><span>Edenvale</span></div>
+<div class="area-card"><i class="fas fa-map-marker-alt"></i><span>Boksburg</span></div>
+<div class="area-card"><i class="fas fa-map-marker-alt"></i><span>Benoni</span></div>
+<div class="area-card"><i class="fas fa-map-marker-alt"></i><span>Germiston</span></div>
+<div class="area-card"><i class="fas fa-map-marker-alt"></i><span>Bedfordview</span></div>
+<div class="area-card"><i class="fas fa-map-marker-alt"></i><span>Midrand</span></div>
+<div class="area-card"><i class="fas fa-map-marker-alt"></i><span>Johannesburg</span></div>
+</div>
+</section>
+
+<section class="testimonials">
+<div class="section-header">
+<h3>Testimonials</h3>
+<h2>What Our Customers Say</h2>
+<p>Don't just take our word for it. Here's what our satisfied customers have to say.</p>
+</div>
+<div class="testimonials-grid">
+<div class="testimonial-card fade-in">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p>"Perkins Plumbing came to our rescue at 2 AM when our geyser burst. They were professional, fast, and the price was fair. Highly recommend!"</p>
+<div class="testimonial-author"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Customer"><div><h4>John M.</h4><span>Kempton Park</span></div></div>
+</div>
+<div class="testimonial-card fade-in">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p>"Excellent electrical work! They rewired our entire office in Edenvale. Clean, efficient, and everything was done to code. Will definitely use again."</p>
+<div class="testimonial-author"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Customer"><div><h4>Sarah K.</h4><span>Edenvale</span></div></div>
+</div>
+<div class="testimonial-card fade-in">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p>"Had a blocked drain that no one else could fix. Perkins used their high-pressure equipment and cleared it in no time. Very impressed!"</p>
+<div class="testimonial-author"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Customer"><div><h4>David P.</h4><span>Boksburg</span></div></div>
+</div>
+</div>
+</section>
+</div>
+
+<div id="services" class="page">
+<section class="page-title-section">
+<h1>Our Services</h1>
+<p>Comprehensive plumbing and electrical solutions for residential and commercial properties across Gauteng. From emergency repairs to complete installations.</p>
+</section>
+
+<section class="services-detail">
+<div class="service-detail-card">
+<div class="service-detail-image"><img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=400&fit=crop" alt="Plumbing Services"></div>
+<div class="service-detail-content">
+<h3>Plumbing</h3>
+<h2>Professional Plumbing Services</h2>
+<p>Our expert plumbers handle everything from minor leaks to major installations. We use the latest tools and techniques to ensure lasting results for your home or business.</p>
+<ul class="service-features">
+<li><i class="fas fa-check-circle"></i> Burst pipe repairs</li>
+<li><i class="fas fa-check-circle"></i> Tap and toilet repairs</li>
+<li><i class="fas fa-check-circle"></i> Bathroom and kitchen installations</li>
+<li><i class="fas fa-check-circle"></i> Pipe replacement and rerouting</li>
+<li><i class="fas fa-check-circle"></i> Water pressure solutions</li>
+</ul>
+<a href="tel:0724428258" class="btn btn-primary"><i class="fas fa-phone-alt"></i>Call for Plumbing Service</a>
+</div>
+</div>
+
+<div class="service-detail-card">
+<div class="service-detail-image"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=400&fit=crop" alt="Electrical Services"></div>
+<div class="service-detail-content">
+<h3>Electrical</h3>
+<h2>Safe Electrical Solutions</h2>
+<p>Our certified electricians provide safe and reliable electrical services. From small repairs to complete rewiring, we ensure all work meets SANS standards and regulations.</p>
+<ul class="service-features">
+<li><i class="fas fa-check-circle"></i> Electrical fault finding</li>
+<li><i class="fas fa-check-circle"></i> Wiring and rewiring</li>
+<li><i class="fas fa-check-circle"></i> DB board upgrades</li>
+<li><i class="fas fa-check-circle"></i> Compliance certificates (COC)</li>
+<li><i class="fas fa-check-circle"></i> Lighting and power point installations</li>
+</ul>
+<a href="tel:0724428258" class="btn btn-primary"><i class="fas fa-phone-alt"></i>Call for Electrical Service</a>
+</div>
+</div>
+
+<div class="service-detail-card">
+<div class="service-detail-image"><img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&h=400&fit=crop" alt="Geyser Services"></div>
+<div class="service-detail-content">
+<h3>Geyser</h3>
+<h2>Geyser Installation & Repairs</h2>
+<p>Hot water is essential. We specialize in geyser installation, repairs, and maintenance for all types including solar, gas, and electric geysers.</p>
+<ul class="service-features">
+<li><i class="fas fa-check-circle"></i> Geyser installation (all types)</li>
+<li><i class="fas fa-check-circle"></i> Geyser repairs and element replacement</li>
+<li><i class="fas fa-check-circle"></i> Solar geyser conversions</li>
+<li><i class="fas fa-check-circle"></i> Gas geyser installation</li>
+<li><i class="fas fa-check-circle"></i> Regular maintenance and servicing</li>
+</ul>
+<a href="tel:0724428258" class="btn btn-primary"><i class="fas fa-phone-alt"></i>Call for Geyser Service</a>
+</div>
+</div>
+
+<div class="service-detail-card">
+<div class="service-detail-image"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop" alt="Drain Cleaning"></div>
+<div class="service-detail-content">
+<h3>Drain Cleaning</h3>
+<h2>Fast Drain Clearing</h2>
+<p>Blocked drains can cause serious damage. Our drain cleaning services use high-pressure jetting and CCTV cameras to identify and clear blockages quickly.</p>
+<ul class="service-features">
+<li><i class="fas fa-check-circle"></i> High-pressure drain jetting</li>
+<li><i class="fas fa-check-circle"></i> CCTV drain inspection</li>
+<li><i class="fas fa-check-circle"></i> Blocked toilet clearing</li>
+<li><i class="fas fa-check-circle"></i> Sewer line cleaning</li>
+<li><i class="fas fa-check-circle"></i> Preventative drain maintenance</li>
+</ul>
+<a href="tel:0724428258" class="btn btn-primary"><i class="fas fa-phone-alt"></i>Call for Drain Cleaning</a>
+</div>
+</div>
+
+<div class="service-detail-card">
+<div class="service-detail-image"><img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&h=400&fit=crop" alt="Leak Detection"></div>
+<div class="service-detail-content">
+<h3>Leak Detection</h3>
+<h2>Advanced Leak Detection</h2>
+<p>Hidden leaks can cause extensive damage. We use advanced acoustic and thermal imaging technology to pinpoint leaks without unnecessary digging or damage.</p>
+<ul class="service-features">
+<li><i class="fas fa-check-circle"></i> Acoustic leak detection</li>
+<li><i class="fas fa-check-circle"></i> Thermal imaging</li>
+<li><i class="fas fa-check-circle"></i> Underground pipe locating</li>
+<li><i class="fas fa-check-circle"></i> Minimal disruption repairs</li>
+<li><i class="fas fa-check-circle"></i> Insurance reports provided</li>
+</ul>
+<a href="tel:0724428258" class="btn btn-primary"><i class="fas fa-phone-alt"></i>Call for Leak Detection</a>
+</div>
+</div>
+
+<div class="service-detail-card">
+<div class="service-detail-image"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=600&h=400&fit=crop" alt="Maintenance"></div>
+<div class="service-detail-content">
+<h3>Maintenance</h3>
+<h2>Preventative Maintenance</h2>
+<p>Regular maintenance prevents costly emergencies. Our maintenance plans keep your plumbing and electrical systems in top condition year-round.</p>
+<ul class="service-features">
+<li><i class="fas fa-check-circle"></i> Annual plumbing inspections</li>
+<li><i class="fas fa-check-circle"></i> Electrical safety checks</li>
+<li><i class="fas fa-check-circle"></i> Geyser servicing</li>
+<li><i class="fas fa-check-circle"></i> Drain maintenance</li>
+<li><i class="fas fa-check-circle"></i> Custom maintenance plans</li>
+</ul>
+<a href="tel:0724428258" class="btn btn-primary"><i class="fas fa-phone-alt"></i>Schedule Maintenance</a>
+</div>
+</div>
+</section>
+
+<section class="emergency-banner">
+<div class="emergency-banner-inner">
+<div class="emergency-content">
+<h3>Emergency Services</h3>
+<h2>Need Help Right Now?</h2>
+<p>Our emergency team is standing by 24/7 to handle your plumbing and electrical emergencies.</p>
+</div>
+<a href="tel:0724428258" class="emergency-btn"><i class="fas fa-phone-alt"></i>072 442 8258</a>
+</div>
+</section>
+</div>
+
+<div id="contact" class="page">
+<section class="contact-hero">
+<h1>Contact Us</h1>
+<p>Get in touch with our team for a free quote or emergency service. We're here to help 24/7.</p>
+</section>
+
+<section class="contact-section">
+<div class="contact-grid">
+<div class="contact-info-cards">
+<div class="contact-card">
+<div class="contact-card-icon"><i class="fas fa-phone-alt"></i></div>
+<div>
+<h4>Phone</h4>
+<a href="tel:0724428258">072 442 8258</a>
+<p style="font-size:13px;margin-top:4px;color:var(--accent)">24/7 Emergency Line</p>
+</div>
+</div>
+<div class="contact-card">
+<div class="contact-card-icon"><i class="fab fa-whatsapp"></i></div>
+<div>
+<h4>WhatsApp</h4>
+<a href="https://wa.me/27724428258" target="_blank">072 442 8258</a>
+<p style="font-size:13px;margin-top:4px">Message us anytime</p>
+</div>
+</div>
+<div class="contact-card">
+<div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+<div>
+<h4>Email</h4>
+<a href="mailto:info@perkinsplumbing.co.za">info@perkinsplumbing.co.za</a>
+<p style="font-size:13px;margin-top:4px">We reply within 2 hours</p>
+</div>
+</div>
+<div class="contact-card">
+<div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+<div>
+<h4>Location</h4>
+<p>Kempton Park, Gauteng, South Africa</p>
+<p style="font-size:13px;margin-top:4px">Serving all surrounding areas</p>
+</div>
+</div>
+<div class="contact-card">
+<div class="contact-card-icon"><i class="fas fa-clock"></i></div>
+<div>
+<h4>Business Hours</h4>
+<p>Open 24 Hours</p>
+<p style="font-size:13px;margin-top:4px;color:var(--accent)">Emergency services always available</p>
+</div>
+</div>
+</div>
+
+<div class="contact-form-wrapper">
+<h3>Request a Free Quote</h3>
+<p>Fill in the form below and we'll get back to you within 30 minutes.</p>
+<form onsubmit="handleFormSubmit(event)">
+<div class="form-row">
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" placeholder="Your full name" required>
+</div>
+<div class="form-group">
+<label>Phone Number</label>
+<input type="tel" placeholder="Your phone number" required>
+</div>
+</div>
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" placeholder="Your email address" required>
+</div>
+<div class="form-group">
+<label>Service Needed</label>
+<select required>
+<option value="">Select a service...</option>
+<option value="plumbing">Plumbing Services</option>
+<option value="electrical">Electrical Services</option>
+<option value="geyser">Geyser Services</option>
+<option value="drain">Drain Cleaning</option>
+<option value="leak">Leak Detection</option>
+<option value="maintenance">Maintenance</option>
+<option value="emergency">Emergency Service</option>
+</select>
+</div>
+<div class="form-group">
+<label>Message</label>
+<textarea placeholder="Tell us about your problem or request..."></textarea>
+</div>
+<button type="submit" class="btn btn-primary form-submit">
+<i class="fas fa-paper-plane"></i>
+Request Free Quote
+</button>
+</form>
+</div>
+</div>
+</section>
+
+<section class="map-section">
+<div class="map-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114584.70429207783!2d28.13239665!3d-26.11714605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e953e0efb7e5d65%3A0x6e6f1e4e3e8e8e8e!2sKempton%20Park!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</section>
+
+<section class="hours-section">
+<div class="hours-grid">
+<div class="hours-content">
+<h2>Business Hours</h2>
+<p>We're available around the clock to serve you. Here are our standard operating hours for non-emergency services.</p>
+<ul class="hours-list">
+<li><span>Monday</span><span>Open 24 Hours</span></li>
+<li><span>Tuesday</span><span>Open 24 Hours</span></li>
+<li><span>Wednesday</span><span>Open 24 Hours</span></li>
+<li><span>Thursday</span><span>Open 24 Hours</span></li>
+<li><span>Friday</span><span>Open 24 Hours</span></li>
+<li><span>Saturday</span><span>Open 24 Hours</span></li>
+<li class="active"><span>Sunday</span><span>Open 24 Hours</span></li>
+</ul>
+<div style="margin-top:24px;padding:20px;background:rgba(230,57,70,0.08);border-radius:12px;border-left:4px solid var(--accent)">
+<p style="font-size:14px;color:var(--text-dark);font-weight:500"><i class="fas fa-exclamation-circle" style="color:var(--accent);margin-right:8px"></i>Emergency services available 24/7 including all public holidays.</p>
+</div>
+</div>
+<div class="hours-image">
+<img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=600&h=500&fit=crop" alt="Professional Service">
+</div>
+</div>
+</section>
+</div>
+
+<footer class="footer">
+<div class="footer-grid">
+<div class="footer-brand">
+<h3>Perkins Plumbing & Electrical</h3>
+<p>Your trusted local plumbing and electrical experts in Kempton Park and surrounding areas. Licensed, insured, and available 24/7 for all your emergency needs.</p>
+<div class="footer-social">
+<a href="https://wa.me/27724428258" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a href="tel:0724428258" title="Call Us"><i class="fas fa-phone-alt"></i></a>
+<a href="mailto:info@perkinsplumbing.co.za" title="Email Us"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+<div class="footer-col">
+<h4>Quick Links</h4>
+<ul class="footer-links">
+<li><a href="#" onclick="showPage('home')"><i class="fas fa-chevron-right"></i>Home</a></li>
+<li><a href="#" onclick="showPage('services')"><i class="fas fa-chevron-right"></i>Services</a></li>
+<li><a href="#" onclick="showPage('contact')"><i class="fas fa-chevron-right"></i>Contact</a></li>
+<li><a href="tel:0724428258"><i class="fas fa-chevron-right"></i>Emergency Call</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Services</h4>
+<ul class="footer-links">
+<li><a href="#" onclick="showPage('services')"><i class="fas fa-chevron-right"></i>Plumbing</a></li>
+<li><a href="#" onclick="showPage('services')"><i class="fas fa-chevron-right"></i>Electrical</a></li>
+<li><a href="#" onclick="showPage('services')"><i class="fas fa-chevron-right"></i>Geyser Services</a></li>
+<li><a href="#" onclick="showPage('services')"><i class="fas fa-chevron-right"></i>Drain Cleaning</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Contact Info</h4>
+<div class="footer-contact-item">
+<i class="fas fa-map-marker-alt"></i>
+<span>Kempton Park, Gauteng<br>South Africa</span>
+</div>
+<div class="footer-contact-item">
+<i class="fas fa-phone-alt"></i>
+<a href="tel:0724428258">072 442 8258</a>
+</div>
+<div class="footer-contact-item">
+<i class="fas fa-envelope"></i>
+<a href="mailto:info@perkinsplumbing.co.za">info@perkinsplumbing.co.za</a>
+</div>
+<div class="footer-contact-item">
+<i class="fab fa-whatsapp"></i>
+<a href="https://wa.me/27724428258" target="_blank">072 442 8258</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<div>Copyright &copy; 2026 Perkins Plumbing & Electrical. All rights reserved.</div>
+<div class="footer-badges">
+<div class="footer-badge"><i class="fas fa-clock"></i>Open 24 Hours</div>
+<div class="footer-badge"><i class="fas fa-shield-alt"></i>Licensed & Insured</div>
+<div class="footer-badge"><i class="fas fa-bolt"></i>Fast Emergency Response</div>
+</div>
+</div>
+</footer>
+
+<div class="floating-buttons">
+<a href="https://wa.me/27724428258" class="floating-btn whatsapp" target="_blank" title="WhatsApp Us">
+<i class="fab fa-whatsapp"></i>
+<span class="tooltip">Chat on WhatsApp</span>
+</a>
+<a href="tel:0724428258" class="floating-btn call" title="Call Now">
+<i class="fas fa-phone-alt"></i>
+<span class="tooltip">Call 072 442 8258</span>
+</a>
+<a href="#" class="floating-btn quote" onclick="showPage('contact')" title="Request Quote">
+<i class="fas fa-file-invoice"></i>
+Request Quote
+<span class="tooltip">Get a Free Quote</span>
+</a>
+</div>
+
+<div class="sticky-quote">
+<p><strong>Need urgent help?</strong> Call us now!</p>
+<a href="tel:0724428258" class="btn btn-primary"><i class="fas fa-phone-alt"></i>072 442 8258</a>
+</div>
+
+<script>
+function showPage(pageId){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+    document.querySelectorAll('.mobile-menu-links a').forEach(a=>a.classList.remove('active'));
+    document.querySelectorAll('.nav-links a, .mobile-menu-links a').forEach(a=>{
+        if(a.getAttribute('onclick')&&a.getAttribute('onclick').includes(pageId)) a.classList.add('active');
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleMobileMenu(){
+    document.querySelector('.mobile-menu').classList.toggle('active');
+    document.querySelector('.mobile-menu-overlay').classList.toggle('active');
+}
+
+function handleFormSubmit(e){
+    e.preventDefault();
+    alert('Thank you! Your quote request has been submitted. We will contact you within 30 minutes.');
+    e.target.reset();
+}
+
+const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+},{threshold:0.1});
+
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+window.addEventListener('scroll',()=>{
+    const navbar=document.querySelector('.navbar');
+    if(window.scrollY>50){
+        navbar.style.padding='8px 0';
+        navbar.style.boxShadow='0 4px 20px rgba(0,0,0,0.1)';
+    }else{
+        navbar.style.padding='12px 0';
+        navbar.style.boxShadow='var(--shadow)';
+    }
+});
+</script>
+</body>
+</html>
